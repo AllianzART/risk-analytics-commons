@@ -15,7 +15,7 @@ grails.project.dependency.resolution = {
             updatePolicy System.getProperty('snapshotUpdatePolicy') ?: 'daily'
         }
 
-        mavenCentral()
+//        mavenCentral()
         grailsCentral()
         mavenRepo "http://repo.spring.io/milestone/" //needed for spring-security-core 2.0-rc2 plugin
 
