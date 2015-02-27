@@ -16,7 +16,7 @@ grails.project.dependency.resolution = {
         }
 
 //        mavenCentral()
-        grailsCentral()
+//        grailsCentral()
         mavenRepo "http://repo.spring.io/milestone/" //needed for spring-security-core 2.0-rc2 plugin
 
     }
