@@ -11,17 +11,11 @@ grails.project.dependency.resolution = {
         grailsHome()
         mavenLocal()
 
-        mavenRepo (name:"zh-artisan-test" , url:"http://zh-artisan-test.art-allianz.com:8085/nexus/content/groups/public/") {
+        mavenRepo (name:"pillarone" ,       url:"http://zh-artisan-test.art-allianz.com:8085/nexus/content/groups/public/") {
+//      mavenRepo (name:"zh-artisan-test" , url:"http://zh-artisan-test.art-allianz.com:8085/nexus/content/groups/public/") {
             updatePolicy System.getProperty('snapshotUpdatePolicy') ?: 'daily'
         }
 
-    }
-
-    dependencies {
-        compile (group:'org.apache.poi', name:'poi', version:'3.9');
-        compile (group:'org.apache.poi', name:'poi-ooxml', version:'3.9') {
-            excludes 'xmlbeans'
-        }
     }
 
     plugins {
@@ -39,6 +33,14 @@ grails.project.dependency.resolution = {
             runtime("org.pillarone:risk-analytics-core:1.9.20")
         }
     }
+
+    dependencies {
+        compile (group:'org.apache.poi', name:'poi', version:'3.9');
+        compile (group:'org.apache.poi', name:'poi-ooxml', version:'3.9') {
+            excludes 'xmlbeans'
+        }
+    }
+
 }
 
 grails.project.repos.default = "pillarone"
@@ -51,6 +53,8 @@ grails.project.dependency.distribution = {
     try {
         Properties properties = new Properties()
         String version = new GroovyClassLoader().loadClass('RiskAnalyticsCommonsGrailsPlugin').newInstance().version
+        println "reading deploy settings from ${userHome}/deployInfo.properties"
+
         properties.load(new File("${userHome}/deployInfo.properties").newInputStream())
         user = properties.get("user")
         password = properties.get("password")
@@ -64,6 +68,7 @@ grails.project.dependency.distribution = {
         	authentication username: user, password: password
 	}
     } catch (Throwable t) {
+        println "Caught Throwable trying to setup grails.project.dependency.distribution: ${t}"
     }
     
 }
