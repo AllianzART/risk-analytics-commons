@@ -1,7 +1,7 @@
 <project name="risk-analytics-commons" default="cruise">
     <property file="application.properties" />
 
-    <get src="https://raw.githubusercontent.com/AllianzART/risk-analytics-core/1.10-SNAPSHOT/scripts/build.xml" dest="_build.xml" skipexisting="true" />
+    <get src="https://raw.githubusercontent.com/AllianzART/risk-analytics-core/master/scripts/build.xml" dest="_build.xml" skipexisting="true" />
 
     <!-- Is this element now redundant if we have the above copy from git ?
     <copy tofile="_build.xml" overwrite="true" failonerror="false">
