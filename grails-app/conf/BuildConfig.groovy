@@ -1,5 +1,5 @@
 //Use a custom plugins dir, because different branches use different plugin versions
-grails.project.plugins.dir = "../local-plugins/risk-analytics-commons-1.9.x"
+grails.project.plugins.dir = "../local-plugins/risk-analytics-commons-master"
 
 grails.project.dependency.resolver = "maven"
 
@@ -11,11 +11,14 @@ grails.project.dependency.resolution = {
         grailsHome()
         mavenLocal()
 
-        mavenRepo (name:"pillarone" ,       url:"http://zh-artisan-test.art-allianz.com:8085/nexus/content/groups/public/") {
+        mavenRepo(name: "pillarone", url: "http://zh-artisan-test.art-allianz.com:8085/nexus/content/groups/public/") {
 //      mavenRepo (name:"zh-artisan-test" , url:"http://zh-artisan-test.art-allianz.com:8085/nexus/content/groups/public/") {
             updatePolicy System.getProperty('snapshotUpdatePolicy') ?: 'daily'
         }
 
+        grailsCentral()
+        mavenCentral()
+        mavenRepo "http://repo.spring.io/milestone/" //needed for spring-security-core 2.0-rc2 plugin
     }
 
     plugins {
@@ -30,13 +33,13 @@ grails.project.dependency.resolution = {
         compile ":excel-import:1.0.0"
 
         if (appName == "risk-analytics-commons") {
-            runtime("org.pillarone:risk-analytics-core:1.9.20")
+            runtime("org.pillarone:risk-analytics-core:1.10-SNAPSHOT")
         }
     }
 
     dependencies {
-        compile (group:'org.apache.poi', name:'poi', version:'3.9');
-        compile (group:'org.apache.poi', name:'poi-ooxml', version:'3.9') {
+        compile(group: 'org.apache.poi', name: 'poi', version: '3.9');
+        compile(group: 'org.apache.poi', name: 'poi-ooxml', version: '3.9') {
             excludes 'xmlbeans'
         }
     }
@@ -59,18 +62,18 @@ grails.project.dependency.distribution = {
         user = properties.get("user")
         password = properties.get("password")
 
-        if (version?.endsWith('-SNAPSHOT')){
+        if (version?.endsWith('-SNAPSHOT')) {
             scpUrl = properties.get("urlSnapshot")
-        }else {
+        } else {
             scpUrl = properties.get("url")
         }
-	remoteRepository(id: "pillarone", url: scpUrl) {
-        	authentication username: user, password: password
-	}
+        remoteRepository(id: "pillarone", url: scpUrl) {
+            authentication username: user, password: password
+        }
     } catch (Throwable t) {
         println "Caught Throwable trying to setup grails.project.dependency.distribution: ${t}"
     }
-    
+
 }
 
 coverage {

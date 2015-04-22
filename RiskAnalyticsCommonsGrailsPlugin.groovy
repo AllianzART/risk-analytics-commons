@@ -1,24 +1,8 @@
-import org.pillarone.riskanalytics.domain.utils.constraint.IntDateTimeDoubleConstraints
-import org.pillarone.riskanalytics.domain.utils.constraint.ReinsuranceContractContraints
-import org.pillarone.riskanalytics.domain.utils.validation.DistributionTypeValidator
-import org.pillarone.riskanalytics.core.parameterization.validation.ValidatorRegistry
-import org.pillarone.riskanalytics.domain.utils.constraint.DateTimeConstraints
-import org.pillarone.riskanalytics.core.parameterization.ConstraintsFactory
-import org.pillarone.riskanalytics.domain.utils.constraint.DoubleConstraints
-import org.pillarone.riskanalytics.domain.utils.validation.FrequencyDistributionTypeValidator
 import org.pillarone.riskanalytics.core.util.ResourceBundleRegistry
-import org.pillarone.riskanalytics.core.parameterization.SimpleConstraint
-import org.pillarone.riskanalytics.domain.utils.constraint.PerilPortion
-import org.pillarone.riskanalytics.domain.utils.constraint.SegmentPortion
-import org.pillarone.riskanalytics.domain.utils.constraint.UnderwritingPortion
-import org.pillarone.riskanalytics.domain.utils.constraint.ReservePortion
-import org.pillarone.riskanalytics.domain.utils.constraint.ReinsuranceContractBasedOn
-import org.pillarone.riskanalytics.domain.utils.constraint.PeriodDistributionsConstraints
-import org.pillarone.riskanalytics.domain.utils.constraint.PeriodNDistributionsConstraints
 
 class RiskAnalyticsCommonsGrailsPlugin {
     // the plugin version
-    def version = "1.9.4"
+    def version = "1.10-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.3.2 > *"
     // the other plugins this plugin depends on
