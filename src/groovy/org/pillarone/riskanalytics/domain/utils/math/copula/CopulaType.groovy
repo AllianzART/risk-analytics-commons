@@ -36,7 +36,7 @@ class CopulaType extends AbstractCopulaType {
                                                                           "degreesOfFreedom" : 10 ]
                                                                       );
     public static final CopulaType MULTI_PERIOD_NORMAL= new CopulaType( "multi period normal", "MULTI_PERIOD_NORMAL",
-                                                                        [(DEPENDANCY_MATRIX): new PeriodMatrixMultiDimensionalParameter([[], []], [[], []], ICorrelationMarker)]
+                                                                        [(DEPENDANCY_MATRIX): new PeriodMatrixMultiDimensionalParameter([[1d, 0d], [0d, 1d]], [["A","B"], [1,1]], ICorrelationMarker)]
                                                                       );
 
     public static final all = [NORMAL, INDEPENDENT, FRECHETUPPERBOUND, GUMBEL, T, MULTI_PERIOD_NORMAL]
