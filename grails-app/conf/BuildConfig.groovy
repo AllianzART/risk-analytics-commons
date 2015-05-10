@@ -1,5 +1,5 @@
 //Use a custom plugins dir, because different branches use different plugin versions
-grails.project.plugins.dir = "../local-plugins/risk-analytics-commons-master"
+grails.project.plugins.dir = "../local-plugins/risk-analytics-commons-release-1.10"
 
 grails.project.dependency.resolver = "maven"
 
